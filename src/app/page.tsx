@@ -1,57 +1,58 @@
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white px-6">
+    <main className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 text-white">
+      {/* Navbar */}
+      <nav className="flex items-center justify-between px-10 py-6">
+        <div className="flex items-center space-x-3">
+          <Image src="/logo.svg" alt="Movira Logo" width={160} height={50} priority />
+        </div>
+        <div className="space-x-6 hidden md:flex">
+          <a href="#features" className="hover:text-pink-400 transition">Features</a>
+          <a href="#pricing" className="hover:text-pink-400 transition">Pricing</a>
+          <a href="#about" className="hover:text-pink-400 transition">About</a>
+        </div>
+        <button className="bg-gradient-to-r from-pink-500 to-indigo-500 px-6 py-2 rounded-full font-semibold hover:opacity-90 transition">
+          Get Started
+        </button>
+      </nav>
+
       {/* Hero Section */}
-      <section className="text-center max-w-3xl">
-        <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight">
-          Movira
-        </h1>
-        <p className="mt-6 text-xl md:text-2xl text-gray-300 leading-relaxed">
-          Transform your ideas into <span className="text-purple-400">cinematic videos</span> in seconds.
-        </p>
-
-        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="#"
-            className="px-8 py-4 bg-purple-600 hover:bg-purple-700 rounded-2xl font-semibold text-lg shadow-lg transition"
-          >
-            Get Started
-          </a>
-          <a
-            href="#"
-            className="px-8 py-4 border border-gray-600 hover:border-purple-400 rounded-2xl font-semibold text-lg transition"
-          >
-            Learn More
-          </a>
-        </div>
+      <section className="flex flex-col items-center justify-center text-center py-28 px-6">
+        <motion.h1
+          className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-pink-500 to-indigo-500 bg-clip-text text-transparent"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          Create Cinematic Videos with AI
+        </motion.h1>
+        <motion.p
+          className="mt-6 text-lg text-gray-300 max-w-2xl"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
+        >
+          Movira helps you turn ideas into stunning videos in seconds. From script to screen, powered by AI.
+        </motion.p>
+        <motion.div
+          className="mt-10 flex gap-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 1 }}
+        >
+          <button className="bg-gradient-to-r from-pink-500 to-indigo-500 px-8 py-3 rounded-full font-semibold hover:opacity-90 transition">
+            Start Creating
+          </button>
+          <button className="border border-gray-600 px-8 py-3 rounded-full font-semibold hover:border-pink-400 transition">
+            Watch Demo
+          </button>
+        </motion.div>
       </section>
-
-      {/* Features Section */}
-      <section className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl">
-        <div className="bg-gray-800 p-8 rounded-2xl shadow-md hover:shadow-purple-500/20 transition">
-          <h3 className="text-2xl font-bold mb-4">AI-Powered Creation</h3>
-          <p className="text-gray-400">
-            Generate videos instantly from text prompts with cutting-edge AI models.
-          </p>
-        </div>
-        <div className="bg-gray-800 p-8 rounded-2xl shadow-md hover:shadow-purple-500/20 transition">
-          <h3 className="text-2xl font-bold mb-4">Cinematic Quality</h3>
-          <p className="text-gray-400">
-            Stunning visuals, smooth animations, and professional storytelling tools.
-          </p>
-        </div>
-        <div className="bg-gray-800 p-8 rounded-2xl shadow-md hover:shadow-purple-500/20 transition">
-          <h3 className="text-2xl font-bold mb-4">Instant Export</h3>
-          <p className="text-gray-400">
-            Download and share your videos in HD with one click.
-          </p>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="mt-24 text-gray-500 text-sm text-center">
-        © {new Date().getFullYear()} Movira. All rights reserved.
-      </footer>
     </main>
-  )
+  );
 }
