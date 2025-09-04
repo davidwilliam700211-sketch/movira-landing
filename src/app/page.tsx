@@ -1,30 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
     <main className="bg-gradient-to-b from-black via-gray-900 to-black text-white min-h-screen scroll-smooth">
-      {/* Navbar */}
-      <nav className="fixed top-0 left-0 w-full bg-black/60 backdrop-blur-md border-b border-gray-800 z-50">
-        <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <Image src="/logo.svg" alt="Movira Logo" width={120} height={40} priority />
-          </div>
-          {/* Nav Links */}
-          <div className="hidden md:flex gap-8 text-gray-300 font-medium">
-            <a href="#features" className="hover:text-white transition">Features</a>
-            <a href="#pricing" className="hover:text-white transition">Pricing</a>
-            <a href="#about" className="hover:text-white transition">About</a>
-          </div>
-          {/* CTA */}
-          <a href="#pricing" className="hidden md:inline-block px-5 py-2 rounded-xl bg-pink-600 hover:bg-pink-700 text-white font-semibold transition">
-            Get Started
-          </a>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center text-center px-6 py-32 md:py-40">
@@ -51,10 +34,16 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
         >
-          <a href="#pricing" className="px-6 py-3 rounded-2xl bg-pink-600 hover:bg-pink-700 text-white font-semibold transition">
+          <a
+            href="#pricing"
+            className="px-6 py-3 rounded-2xl bg-pink-600 hover:bg-pink-700 text-white font-semibold transition"
+          >
             Get Started
           </a>
-          <a href="#features" className="px-6 py-3 rounded-2xl bg-gray-800 hover:bg-gray-700 text-white font-semibold transition">
+          <a
+            href="#features"
+            className="px-6 py-3 rounded-2xl bg-gray-800 hover:bg-gray-700 text-white font-semibold transition"
+          >
             Learn More
           </a>
         </motion.div>
@@ -65,9 +54,18 @@ export default function Home() {
         <h2 className="text-4xl font-bold text-center mb-12">Why Movira?</h2>
         <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
           {[
-            { title: "Text to Video", desc: "Turn scripts into stunning videos powered by AI and cinematic templates." },
-            { title: "Media Library", desc: "Access stock footage, music, and effects to elevate your storytelling." },
-            { title: "Export Anywhere", desc: "Download in 4K or share instantly to YouTube, TikTok, and social platforms." },
+            {
+              title: "Text to Video",
+              desc: "Turn scripts into stunning videos powered by AI and cinematic templates.",
+            },
+            {
+              title: "Media Library",
+              desc: "Access stock footage, music, and effects to elevate your storytelling.",
+            },
+            {
+              title: "Export Anywhere",
+              desc: "Download in 4K or share instantly to YouTube, TikTok, and social platforms.",
+            },
           ].map((feature, i) => (
             <motion.div
               key={i}
@@ -98,13 +96,21 @@ export default function Home() {
             {
               title: "Pro",
               price: "$29/mo",
-              perks: ["✔ Unlimited videos", "✔ Full media library", "✔ 1080p & 4K exports"],
+              perks: [
+                "✔ Unlimited videos",
+                "✔ Full media library",
+                "✔ 1080p & 4K exports",
+              ],
               highlight: true,
             },
             {
               title: "Business",
               price: "$99/mo",
-              perks: ["✔ Team collaboration", "✔ Priority rendering", "✔ Branding tools"],
+              perks: [
+                "✔ Team collaboration",
+                "✔ Priority rendering",
+                "✔ Branding tools",
+              ],
               highlight: false,
             },
           ].map((plan, i) => (
@@ -167,10 +173,7 @@ export default function Home() {
         </motion.p>
       </section>
 
-      {/* Footer */}
-      <footer className="px-6 py-10 bg-black border-t border-gray-800 text-center text-gray-500">
-        <p>© {new Date().getFullYear()} Movira. All rights reserved.</p>
-      </footer>
+      <Footer />
     </main>
   );
 }
